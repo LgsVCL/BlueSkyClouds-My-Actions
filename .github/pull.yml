@@ -1,6 +1,21 @@
+- name: Set cron schedule
+
+on:
+  workflow_dispch
+  schedule：
+  - cron:"8/5 23 * * *"
+  - cron:"8/5 4  * * *"
+  - cron:"8/5 12 * * *"
+
+  jobs:
+    run:
+      runs-on:wions-latest
+      steps:
+        - uses: gr2m/set-cron-schedule-action@v2.1.0
+            
 version: "1"
-rules:                      # Array of rules
-  - base: master            # Required. Target branch
-    upstream: BlueskyClouds:master    # Required. Must be in the same fork network.
-    mergeMethod: hardreset  # Optional, one of [none, merge, squash, rebase, hardreset], Default: none.
-    mergeUnstable: true    # Optional, merge pull request even when the mergeable_state is not clean. Default: false
+rules:                    # Array of rules
+- base: master            # Required. Target branch
+upstream: BlueskyClouds:master    # Required. Must be in the same fork network.
+mergeMethod: hardreset  # Optional, one of [none, merge, squash, rebase, hardreset], Default: none.
+mergeUnstable: true    # Optional, merge pull request even when the mergeable_state is not clean. Default: false
